@@ -4,6 +4,11 @@
   "workspaces": [
     "packages/*"
   ],
+  "scripts": {
+    "sub1": "yarn workspace sub1",
+    "sub2": "yarn workspace sub2",
+    "sub3": "yarn workspace sub3"
+  },
   "devDependencies": {
     "eslint": "^8.29.0",
     "prettier": "^2.8.1",

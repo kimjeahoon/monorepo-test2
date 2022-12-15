@@ -1,10 +1,10 @@
-name: Github-Action-Test
+name: sub2
 on:
   push:
     branches:
       - master
     paths:
-      - "packages/sub1/**"
+      - "packages/sub2/**"
 jobs:
   test:
     runs-on: ubuntu-latest

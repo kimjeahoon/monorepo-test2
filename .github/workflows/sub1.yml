@@ -9,5 +9,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
+
       - name: Use local action
         uses: ./actions/sub1/**

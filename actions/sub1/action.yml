@@ -8,5 +8,5 @@ runs:
       shell: bash
 
     - name: Run Action Script
-      run: yarn sub1 action
+      run: yarn action
       shell: bash

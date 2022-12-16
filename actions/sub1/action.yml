@@ -1,0 +1,12 @@
+name: sub1
+description: sub1 test
+runs:
+  using: composite
+  steps:
+    - name: Install Dependencies
+      run: yarn install --immutable
+      shell: bash
+
+    - name: Run Action Script
+      run: yarn action
+      shell: bash

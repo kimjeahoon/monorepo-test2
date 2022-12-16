@@ -1,0 +1,13 @@
+name: sub1
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - "packages/sub1/**"
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Use local action
+        uses: ./actions/sub1

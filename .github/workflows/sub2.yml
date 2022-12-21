@@ -15,8 +15,8 @@ jobs:
           # echo "BUILD_ENV=production" >> $GITHUB_ENV
       - name: Set build env and version
         run: |
-          echo "BUILD_ENV=production, VERSION=$(echo $GITHUB_REF | cut -d'/' -f 4)-${GITHUB_SHA::6}" >> $GITHUB_ENV
-          echo "$GITHUB_REF_NAME, $GITHUB_SHA, ${GITHUB_SHA::6}, $GITHUB_ENV"
+          echo "BUILD_ENV=production; VERSION=$(echo $GITHUB_REF | cut -d'/' -f 4)-${GITHUB_SHA::6}" >> $GITHUB_ENV
+          echo "$GITHUB_REF_NAME, $GITHUB_SHA ${GITHUB_SHA::6}, $GITHUB_ENV"
 
       # - name: Install Dependencies
       #   run: yarn install --immutable

@@ -9,13 +9,12 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses:
-          actions/checkout@v2
+      - uses: actions/checkout@v2
 
-          # echo "BUILD_ENV=production" >> $GITHUB_ENV
       - name: Set build env and version
         run: |
           echo "BUILD_ENV=production; VERSION=$(echo $GITHUB_REF | cut -d'/' -f 4)-${GITHUB_SHA::6}" >> $GITHUB_ENV
+          echo "TEST=aa" >> $GITHUB_ENV
           echo "$GITHUB_REF_NAME, $GITHUB_SHA ${GITHUB_SHA::6}, $GITHUB_ENV"
 
       # - name: Install Dependencies

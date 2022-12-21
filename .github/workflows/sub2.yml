@@ -11,6 +11,14 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Set Production Build ENV
+        run: echo "BUILD_ENV=production" >> $GITHUB_ENV
+
+      - name: Set Production Version
+        run: echo "VERSION=$(echo $GITHUB_REF | cut -d'/' -f 4)-${GITHUB_SHA::6}" >> $GITHUB_ENV
+
+      - run: echo "$GITHUB_ENV"
+
       - name: Install Dependencies
         run: yarn install --immutable
 

@@ -17,10 +17,10 @@ jobs:
       - name: Set Production Version
         run: echo "VERSION=$(echo $GITHUB_REF | cut -d'/' -f 4)-${GITHUB_SHA::6}" >> $GITHUB_ENV
 
-      - run: echo "$GITHUB_ENV"
+      - run: echo "$GITHUB_REF, $GITHUB_ENV"
 
-      - name: Install Dependencies
-        run: yarn install --immutable
+      # - name: Install Dependencies
+      #   run: yarn install --immutable
 
-      - name: Run Action Script
-        run: yarn sub1 run action
+      # - name: Run Action Script
+      #   run: yarn sub1 run action

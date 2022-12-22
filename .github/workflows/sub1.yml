@@ -13,4 +13,9 @@ jobs:
         working-directory: packages/sub1
     steps:
       - uses: actions/checkout@v3
-      - uses: ./actions/sub1
+
+      - name: Install Dependencies
+        run: yarn install --immutable
+
+      - name: Run Action Script
+        run: yarn action

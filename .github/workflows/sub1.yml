@@ -22,3 +22,6 @@ jobs:
 
       - name: Run Action Script
         run: yarn action
+
+      - name: Print list
+        run: ls -al

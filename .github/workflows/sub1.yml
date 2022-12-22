@@ -14,6 +14,9 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Print list
+        run: echo "ls -al"
+
       - name: Install Dependencies
         run: yarn install --immutable
 

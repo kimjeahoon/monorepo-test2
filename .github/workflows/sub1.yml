@@ -18,7 +18,8 @@ jobs:
         run: ls -al
 
       - name: Install Dependencies
-        run: yarn install --immutable
+        # run: yarn install --immutable
+        run: npm i
 
       - name: Run Action Script
         run: yarn action

@@ -18,8 +18,8 @@ jobs:
       - name: Print
         run: |
           echo "$GITHUB_ENV"
-          echo "${ env.DIRECTORY }"
-          echo "${ env.BUILD_ENV }"
+          echo "directory: ${ env.DIRECTORY }"
+          echo "build_env: ${ env.BUILD_ENV }"
 
       # - name: Install Dependencies
       #   run: yarn install --immutable

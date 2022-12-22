@@ -13,9 +13,7 @@ jobs:
 
       - name: Set build env and version
         run: |
-          echo "BUILD_ENV=production" >> $GITHUB_ENV
-          echo "VERSION=$GITHUB_REF_NAME-${GITHUB_SHA::6}" >> $GITHUB_ENV
-          echo "$GITHUB_REF_NAME, $GITHUB_SHA ${GITHUB_SHA::6}, $GITHUB_ENV"
+          echo "DIRECTORY=develop/" >> $GITHUB_ENV && echo "BUILD_ENV=develop" >> $GITHUB_ENV
 
       - name: Print
         run: |

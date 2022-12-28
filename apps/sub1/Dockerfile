@@ -2,7 +2,8 @@
 FROM node:16.13.1-alpine3.15 as build
 WORKDIR /app
 
-RUN ls -al ../
+RUN ls -al
+RUN ls -e ./package.json
 
 # COPY ./package*.json ./.npmrc ./
 # RUN npm ci && \

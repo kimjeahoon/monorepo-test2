@@ -8,9 +8,9 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: apps/sub1
+    # defaults:
+    #   run:
+    #     working-directory: apps/sub1
     steps:
       - uses: actions/checkout@v3
 

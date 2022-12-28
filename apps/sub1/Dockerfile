@@ -2,10 +2,9 @@
 FROM node:16.13.1-alpine3.15 as build
 WORKDIR /app
 
-RUN ls -al
-RUN ls ./package.json
+COPY ./package.json ./yarn.lock ./.yarnrc.yml ./
 
-# COPY ./package*.json ./.npmrc ./
+RUN ls -al
 # RUN npm ci && \
 #     rm -f ./.npmrc
 # COPY . .

@@ -2,7 +2,8 @@
   "name": "monorepo-test2",
   "packageManager": "yarn@3.3.0",
   "workspaces": [
-    "packages/*"
+    "apps/*",
+    "libs/*"
   ],
   "scripts": {
     "sub1": "yarn workspace sub1",

@@ -4,7 +4,7 @@ on:
     branches:
       - master
     paths:
-      - "packages/sub1/**"
+      - "apps/sub1/**"
 jobs:
   test:
     runs-on: ubuntu-latest

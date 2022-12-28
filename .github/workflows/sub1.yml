@@ -17,7 +17,6 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v3
         with:
-          file: apps/sub1/Dockerfile
           push: false
 
       # - name: Install Dependencies

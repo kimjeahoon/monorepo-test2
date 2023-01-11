@@ -14,8 +14,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Build Docker image
-        run: docker build -t test-image:latest apps/sub1
+      - name: shell script copy
+        run: copy.sh
+
+      # - name: Build Docker image
+      #   run: docker build -t test-image:latest apps/sub1
 
       # - name: Install Dependencies
       #   run: yarn install --immutable

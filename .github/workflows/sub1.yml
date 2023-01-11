@@ -15,7 +15,9 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: shell script copy
-        run: ./copy.sh
+        run: |
+          chmod +x ./copy.sh
+          ./copy.sh
 
       # - name: Build Docker image
       #   run: docker build -t test-image:latest apps/sub1

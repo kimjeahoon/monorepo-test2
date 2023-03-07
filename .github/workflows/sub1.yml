@@ -18,7 +18,9 @@ jobs:
         run: echo "NOW=$(TZ=Asia/Seoul date '+%y-%m-%dT%H:%M:%S')" >> $GITHUB_ENV
 
       - name: Echo current date
-        run: echo $NOW
+        run: |
+          echo $NOW
+          echo ${{ github.repository }}
 
       - name: shell script copy
         run: |

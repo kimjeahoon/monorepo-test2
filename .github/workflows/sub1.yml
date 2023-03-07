@@ -17,12 +17,17 @@ jobs:
       - name: Set current date as env variable
         run: echo "NOW=$(TZ=Asia/Seoul date '+%y-%m-%dT%H:%M:%S')" >> $GITHUB_ENV
 
-      - name: Echo current date
+      - name: Extract metadata (tags, labels)
+        id: meta
+        uses: docker/metadata-action@v3
+        with:
+          tags: |
+            type=sha,prefix=sub1-$NOW-
+
+      - name: Echo tag
         run: |
           echo $NOW
-          echo ${{ github.repository }}
-          echo ${{ github.workspace }}
-          echo ${{ github.ref }}
+          echo ${{ steps.meta.outputs.tags }}
 
       - name: shell script copy
         run: |

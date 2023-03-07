@@ -22,7 +22,7 @@ jobs:
           echo $NOW
           echo ${{ github.repository }}
           echo ${{ github.workspace }}
-          echo ${{ github.event }}
+          echo $PWD
 
       - name: shell script copy
         run: |

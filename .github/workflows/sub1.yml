@@ -22,6 +22,7 @@ jobs:
           echo $NOW
           echo ${{ github.repository }}
           echo ${{ github.workspace }}
+          echo $GITHUB_ACTION_REPOSITORY
 
       - name: shell script copy
         run: |

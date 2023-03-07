@@ -5,7 +5,7 @@ import { Select } from "@step/common-test";
 function App() {
   return (
     <>
-      <div css={testCss}>sub module 111</div>
+      <div css={testCss}>sub module 1</div>
       <div css={selectWrapper}>
         <Select />
       </div>

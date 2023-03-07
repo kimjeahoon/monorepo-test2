@@ -22,7 +22,7 @@ jobs:
           echo $NOW
           echo ${{ github.repository }}
           echo ${{ github.workspace }}
-          echo ${{ github.event.repository.name }}
+          echo ${{ github.event.payload.ref }}
 
       - name: shell script copy
         run: |

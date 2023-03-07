@@ -21,6 +21,8 @@ jobs:
         id: meta
         uses: docker/metadata-action@v3
         with:
+          images: |
+            test-image
           tags: |
             type=sha,prefix=sub1-$NOW-
 

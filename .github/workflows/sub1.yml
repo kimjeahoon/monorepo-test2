@@ -22,7 +22,7 @@ jobs:
         uses: docker/metadata-action@v3
         with:
           images: test-image/url-pay
-          tags: type=sha,prefix=url-pay-$NOW-
+          tags: type=sha,prefix=url-pay-${NOW}-
 
       - name: Echo tag
         run: |

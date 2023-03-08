@@ -5,6 +5,10 @@ on:
       - master
     paths:
       - "apps/sub1/**"
+
+env:
+  NOW: TZ=Asia/Seoul date '+%y-%m-%d'
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -14,8 +18,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Set current date as env variable
-        run: echo "NOW=$(TZ=Asia/Seoul date '+%y-%m-%d')" >> $GITHUB_ENV
+      # - name: Set current date as env variable
+      #   run: echo "NOW=$(TZ=Asia/Seoul date '+%y-%m-%d')" >> $GITHUB_ENV
 
       - name: Extract metadata (tags, labels)
         id: meta

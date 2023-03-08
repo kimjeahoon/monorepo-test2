@@ -34,9 +34,7 @@ jobs:
         with:
           file: /apps/sub1/Dockerfile
           context: .
-          push: true
-          tags: echo ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
+          tags: ${{ steps.meta.outputs.tags }}
 
       # - name: shell script copy
       #   run: |

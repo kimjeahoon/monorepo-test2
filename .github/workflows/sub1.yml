@@ -7,11 +7,8 @@ on:
       - "apps/sub1/**"
 
 jobs:
-  test:
+  test1:
     runs-on: ubuntu-latest
-    # defaults:
-    #   run:
-    #     working-directory: apps/sub1
     steps:
       - uses: actions/checkout@v3
 
@@ -39,19 +36,13 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
 
-      # - name: shell script copy
-      #   run: |
-      #     chmod +x ./copy.sh
-      #     ./copy.sh
+  test2:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
 
-      # - name: Build Docker image
-      #   run: docker build -t test-image:latest apps/sub1
-
-      # - name: Install Dependencies
-      #   run: yarn install --immutable
-
-      # - name: Run Action Script
-      #   run: yarn action
-
-      # - name: Print list
-      #   run: ls -al
+      - name: Echo tag
+        run: |
+          echo $NOW
+          echo ${{ steps.meta.outputs.tags }}
+          echo ${{ steps.meta.outputs.version }}

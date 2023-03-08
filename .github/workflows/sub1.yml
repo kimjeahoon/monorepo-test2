@@ -6,9 +6,6 @@ on:
     paths:
       - "apps/sub1/**"
 
-env:
-  NOW: TZ=Asia/Seoul date '+%y-%m-%d'
-
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -32,6 +29,7 @@ jobs:
         run: |
           echo $NOW
           echo ${{ steps.meta.outputs.tags }}
+          echo ${{ steps.meta.outputs.version }}
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v3

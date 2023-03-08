@@ -35,6 +35,8 @@ jobs:
           context: .
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+    outputs:
+      version: ${{ steps.meta.outputs.version }}
 
   test2:
     runs-on: ubuntu-latest
@@ -44,6 +46,7 @@ jobs:
 
       - name: Echo tag
         run: |
-          echo $NOW
+          echo ${{ env.NOW }}
           echo ${{ steps.meta.outputs.tags }}
           echo ${{ steps.meta.outputs.version }}
+          echo ${{ needs.test1.outputs.version }}

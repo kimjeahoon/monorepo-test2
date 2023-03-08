@@ -21,8 +21,8 @@ jobs:
         id: meta
         uses: docker/metadata-action@v3
         with:
-          images: test-image
-          tags: type=sha,prefix=sub1-$NOW-
+          images: test-image/url-pay
+          tags: type=sha,prefix=url-pay-$NOW-
 
       - name: Echo tag
         run: |

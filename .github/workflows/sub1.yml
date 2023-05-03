@@ -3,7 +3,9 @@ on:
   push:
     branches:
       - master
+      - release
     paths:
+      - .github/workflows/sub1.yml
       - "apps/sub1/**"
 
 jobs:

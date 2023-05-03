@@ -25,10 +25,10 @@ jobs:
           echo ${{ steps.meta.outputs.tags }}
           echo ${{ steps.meta.outputs.version }}
 
-      # - name: Sleep for 30 seconds
-      #   uses: jakejarvis/wait-action@master
-      #   with:
-      #     time: "30s"
+      - name: Sleep for 30 seconds
+        uses: jakejarvis/wait-action@master
+        with:
+          time: "30s"
 
     outputs:
       enable_deploy: ${{ env.ENABLE_DEPLOY }}

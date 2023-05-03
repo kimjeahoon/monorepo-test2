@@ -3,7 +3,9 @@ on:
   push:
     branches: [master, release]
     paths:
+      - .github/workflows/sub2.yml
       - apps/sub2/**
+
 jobs:
   test:
     runs-on: ubuntu-latest

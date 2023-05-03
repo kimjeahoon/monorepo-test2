@@ -1,10 +1,9 @@
 name: sub2
 on:
   push:
-    branches:
-      - master
+    branches: [master, release]
     paths:
-      - "packages/sub2/**"
+      - apps/sub2/**
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -21,8 +20,7 @@ jobs:
           echo "directory: ${DIRECTORY}"
           echo "build_env: ${BUILD_ENV}"
 
-      # - name: Install Dependencies
-      #   run: yarn install --immutable
-
-      # - name: Run Action Script
-      #   run: yarn sub1 run action
+      - name: Sleep for 30 seconds
+        uses: jakejarvis/wait-action@master
+        with:
+          time: "30s"

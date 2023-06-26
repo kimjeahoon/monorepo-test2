@@ -9,6 +9,9 @@ on:
 jobs:
   job1:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: apps/sub1
     steps:
       - name: Set env for main branch
         if: github.ref == 'refs/heads/master'

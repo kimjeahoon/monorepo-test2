@@ -13,14 +13,14 @@ jobs:
     #   run:
     #     working-directory: apps/sub1
     steps:
+      #     - name: Set env for master branch
+      #       if: github.ref == 'refs/heads/master'
+      #       run: echo "ENABLE_DEPLOY=false" >> $GITHUB_ENV
+
+      - uses: actions/checkout@v3
+
       - name: test
         run: ls -alh /home/runner/work/monorepo-test2/monorepo-test2
-
-  #     - name: Set env for master branch
-  #       if: github.ref == 'refs/heads/master'
-  #       run: echo "ENABLE_DEPLOY=false" >> $GITHUB_ENV
-
-  #     - uses: actions/checkout@v3
 
   #     - name: Set current date as env variable
   #       run: echo "NOW=$(TZ=Asia/Seoul date '+%y-%m-%d')" >> $GITHUB_ENV

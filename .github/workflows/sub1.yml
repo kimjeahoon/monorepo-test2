@@ -13,7 +13,7 @@ jobs:
       run:
         working-directory: apps/sub1
     steps:
-      - name: Set env for main branch
+      - name: Set env for master branch
         if: github.ref == 'refs/heads/master'
         run: echo "ENABLE_DEPLOY=false" >> $GITHUB_ENV
 

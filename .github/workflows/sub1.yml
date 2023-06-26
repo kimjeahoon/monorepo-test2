@@ -13,15 +13,21 @@ jobs:
       run:
         working-directory: apps/sub1
     steps:
+      - uses: actions/checkout@v3
+
       - name: Set env for master branch
         if: github.ref == 'refs/heads/master'
         run: echo "ENABLE_DEPLOY=false" >> $GITHUB_ENV
 
-      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 14.x
 
       - name: test
         run: |
-          ls -alh
+          node -v
+          npm -v
+          yarn -v
 
   #     - name: Set current date as env variable
   #       run: echo "NOW=$(TZ=Asia/Seoul date '+%y-%m-%d')" >> $GITHUB_ENV

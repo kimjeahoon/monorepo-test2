@@ -14,7 +14,7 @@ jobs:
     #     working-directory: apps/sub1
     steps:
       - name: test
-        run: ls -alh /home/runner/work
+        run: ls -alh /home/runner/work/monorepo-test2
 
   #     - name: Set env for master branch
   #       if: github.ref == 'refs/heads/master'

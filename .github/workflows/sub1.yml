@@ -21,8 +21,7 @@ jobs:
 
       - name: test
         run: |
-          ls -alh /home/runner/work/monorepo-test2/monorepo-test2
-          echo ${GITHUB_WORKSPACE}
+          ls -alh
 
   #     - name: Set current date as env variable
   #       run: echo "NOW=$(TZ=Asia/Seoul date '+%y-%m-%d')" >> $GITHUB_ENV

@@ -3,9 +3,9 @@ on:
   push:
     branches: [master, release]
     paths:
-      - *.json
-      - *.yml
-      - *.md
+      - "*.json"
+      - "*.yml"
+      - "*.md"
       - .github/workflows/sub1.yml
       - apps/sub1/**
 

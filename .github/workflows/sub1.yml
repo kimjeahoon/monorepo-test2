@@ -19,7 +19,7 @@ jobs:
         run: |
           ALL_SERVERS=("sub1", "sub2")
           for server in "${ALL_SERVERS[@]}"; do
-            if [ $(echo "steps.filter.outputs.${server}_any_changed") == 'true' ]; then
+            if [ ${{ steps.filter.outputs.${server}_any_changed }} == 'true' ]; then
               CHANGED="${CHANGED} ${server}"
             fi
           done

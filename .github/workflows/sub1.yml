@@ -29,3 +29,12 @@ jobs:
         run: |
           echo "changed: ${{ steps.changed.outputs.sub1_any_changed }}"
           echo "changed: ${{ steps.changed.outputs.sub2_any_changed }}"
+
+  job2:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: job2 console
+        run: |
+          echo "changed: ${{ steps.changed.outputs.sub1_any_changed }}"
+          echo "changed: ${{ steps.changed.outputs.sub2_any_changed }}"

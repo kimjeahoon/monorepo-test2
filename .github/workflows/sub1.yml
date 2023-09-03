@@ -2,25 +2,29 @@ name: sub1 asdfas
 on:
   push:
     branches: [master, release]
-    paths-ignore:
-      - apps/sub2/**
-      - apps/sub3/**
+    # paths-ignore:
+    #   - apps/sub2/**
+    #   - apps/sub3/**
 
 jobs:
   job1:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: apps/sub1
     steps:
       - uses: actions/checkout@v3
 
+      - name: Get changed files in the docs folder
+        id: changed
+        uses: tj-actions/changed-files@v38
+        with:
+          files_ignore: |
+            sub1:
+              - apps/sub2/**
+              - apps/sub3/**
+            sub2:
+              - apps/sub1/**
+              - apps/sub3/**
+
       - name: console
         run: |
-          echo ${{ github.event_path }}
-          echo ${{ github.action_path }}
-          echo ${{ github.path }}
-          echo ${{ github.workflow }}
-          
-
+          echo "changed: ${{ steps.changed.outputs }}"
 

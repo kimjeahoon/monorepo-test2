@@ -15,15 +15,13 @@ jobs:
         with:
           files_yaml_from_source_file: ".github/filter.yml"
       
-      - name: Set Changed Files Env
-        run: |
-          if [ ${{ steps.filter.outputs.sub1_any_changed }} == true ]; then
-            echo "CHANGED=sub1" >> $GITHUB_ENV
-          fi
-          echo "env = ${{ env.CHANGED }}"
-          # if [ ${{ steps.filter.outputs.sub2_any_changed }} == true ]; then
-          #   echo "CHANGED=${{ env.CHANGED }} sub2" >> $GITHUB_ENV
-          # fi
+      - name: Set Changed Files Env sub1
+        if: steps.filter.outputs.sub1_any_changed == 'true'
+        run: echo "CHANGED=sub1" >> $GITHUB_ENV
+
+      - name: Set Changed Files Env sub2
+        if: steps.filter.outputs.sub2_any_changed == 'true'
+        run: echo "CHANGED=${{ env.CHANGED }} sub2" >> $GITHUB_ENV
 
       - name: changed console
         run: |

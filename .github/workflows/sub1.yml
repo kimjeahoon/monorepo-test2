@@ -18,11 +18,11 @@ jobs:
         with:
           files_yaml: |
             sub1:
-              - !apps/sub2/**
-              - !apps/sub3/**
+              - "!apps/sub2/**"
+              - "!apps/sub3/**"
             sub2:
-              - !apps/sub1/**
-              - !apps/sub3/**
+              - "!apps/sub1/**"
+              - "!apps/sub3/**"
 
       - name: console
         run: |

@@ -1,5 +1,5 @@
 function App() {
-  return <div>sub module 22222</div>;
+  return <div>sub module 2</div>;
 }
 
 export default App;

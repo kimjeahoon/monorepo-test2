@@ -14,14 +14,6 @@ jobs:
         uses: tj-actions/changed-files@v38
         with:
           files_yaml_from_source_file: ".github/filter.yml"
-      
-      # - name: Set Changed Files Env sub1
-      #   if: steps.filter.outputs.sub1_any_changed == 'true'
-      #   run: echo "CHANGED=sub1" >> $GITHUB_ENV
-
-      # - name: Set Changed Files Env sub2
-      #   if: steps.filter.outputs.sub2_any_changed == 'true'
-      #   run: echo "CHANGED=${{ env.CHANGED }} sub2" >> $GITHUB_ENV
 
       - name: Set Changed Files Env
         run: |

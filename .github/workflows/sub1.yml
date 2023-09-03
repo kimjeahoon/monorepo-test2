@@ -30,6 +30,7 @@ jobs:
           elif [ ${{ steps.filter.outputs.sub2_any_changed }} == 'true' ]; then
             CHANGED="${CHANGED} sub2"
           fi
+          echo "CHANGED=${CHANGED}" >> $GITHUB_ENV
 
       - name: console
         run: |

@@ -15,18 +15,20 @@ jobs:
         with:
           files_yaml_from_source_file: ".github/filter.yml"
       
+      # - name: Set Changed Files Env
+      #   run: |
+      #     if [ ${{ steps.filter.outputs.sub1_any_changed }} == "true" ]; then
+      #       echo "CHANGED=sub1" >> $GITHUB_ENV
+      #     elif [ ${{ steps.filter.outputs.sub2_any_changed }} == "true" ]; then
+      #       echo "CHANGED=sub2" >> $GITHUB_ENV
+      #     fi
+      
       - name: Set Changed Files Env
         run: |
-          if [ ${{ steps.filter.outputs.sub1_any_changed }} == "true" ]; then
-            echo "CHANGED=sub1" >> $GITHUB_ENV
-          elif [ ${{ steps.filter.outputs.sub2_any_changed }} == "true" ]; then
-            echo "CHANGED=sub2" >> $GITHUB_ENV
-          fi
-      
-      - name: all changed files
-        run: |
-          for file in ${{ steps.filter.outputs.all_changed_files }}; do
-            echo "$file was changed"
+          pattern="_any_changed$"
+          for key in $(compgen -v | grep -E "$pattern"); do
+            submodule=${key%_any_changed}
+            echo "CHANGED=$submodule" >> $GITHUB_ENV
           done
 
       - name: changed console

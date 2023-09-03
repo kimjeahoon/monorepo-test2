@@ -26,7 +26,8 @@ jobs:
       - name: Set Changed Files Env
         run: |
           pattern="_any_changed$"
-          for key in $(compgen -v | grep -E "$pattern"); do
+          for key in ${{ steps.filter.outputs }}; do
+            echo "key=$key"
             submodule=${key%_any_changed}
             echo "CHANGED=$submodule" >> $GITHUB_ENV
           done

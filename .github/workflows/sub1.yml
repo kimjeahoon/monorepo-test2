@@ -23,6 +23,14 @@ jobs:
         if: steps.filter.outputs.sub2_any_changed == 'true'
         run: echo "CHANGED=${{ env.CHANGED }} sub2" >> $GITHUB_ENV
 
+      - name: Set Changed Files Env
+        run: |
+          if [ ${{ steps.filter.outputs.sub1_any_changed }} == 'true' ]; then
+            CHANGED="sub1"
+          elif [ ${{ steps.filter.outputs.sub2_any_changed }} == 'true' ]; then
+            CHANGED="${CHANGED} sub2"
+          fi
+
       - name: console
         run: |
           for c in ${{ env.CHANGED }}; do

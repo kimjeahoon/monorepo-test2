@@ -21,9 +21,9 @@ jobs:
             echo "CHANGED=sub1" >> $GITHUB_ENV
           fi
           echo "env = ${{ env.CHANGED }}"
-          if [ ${{ steps.filter.outputs.sub2_any_changed }} == true ]; then
-            echo "CHANGED=${{ env.CHANGED }} sub2" >> $GITHUB_ENV
-          fi
+          # if [ ${{ steps.filter.outputs.sub2_any_changed }} == true ]; then
+          #   echo "CHANGED=${{ env.CHANGED }} sub2" >> $GITHUB_ENV
+          # fi
 
       - name: changed console
         run: |

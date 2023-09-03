@@ -16,7 +16,7 @@ jobs:
         id: changed
         uses: tj-actions/changed-files@v38
         with:
-          files_yaml_from_source_file: ".github/workflows/filter.yml"
+          files_yaml_from_source_file: ".github/filter.yml"
           # files_yaml: |
           #   sub1:
           #     - "!apps/sub2/**"

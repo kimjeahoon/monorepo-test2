@@ -26,5 +26,5 @@ jobs:
 
       - name: console
         run: |
-          echo "changed: ${{ steps.changed.outputs }}"
+          echo "changed: ${{ steps.changed.outputs.sub1_any_changed }}"
 

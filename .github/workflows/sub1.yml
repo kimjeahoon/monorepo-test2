@@ -24,8 +24,23 @@ jobs:
               - "!apps/sub1/**"
               - "!apps/sub3/**"
 
-      - name: console
+      - name: changed console
         run: |
           echo "changed: ${{ steps.changed.outputs.sub1_any_changed }}"
           echo "changed: ${{ steps.changed.outputs.sub2_any_changed }}"
 
+      - uses: dorny/paths-filter@v2
+        id: filter
+        with:
+          filters: |
+            sub1:
+              - "!apps/sub2/**"
+              - "!apps/sub3/**"
+            sub2:
+              - "!apps/sub1/**"
+              - "!apps/sub3/**"
+
+      - name: filter console
+        run: |
+          echo "filter: ${{ steps.filter.outputs.sub1 }}"
+          echo "filter: ${{ steps.filter.outputs.sub2 }}"

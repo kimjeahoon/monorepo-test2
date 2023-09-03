@@ -17,9 +17,9 @@ jobs:
       
       - name: Set Changed Files Env
         run: |
-          if [ steps.filter.outputs.sub1_any_changed == "true" ]; then
+          if [ ${{ steps.filter.outputs.sub1_any_changed }} == "true" ]; then
             echo "CHANGED=sub1" >> $GITHUB_ENV
-          elif [ steps.filter.outputs.sub2_any_changed == "true" ]; then
+          elif [ ${{ steps.filter.outputs.sub2_any_changed }} == "true" ]; then
             echo "CHANGED=sub2" >> $GITHUB_ENV
           fi
 

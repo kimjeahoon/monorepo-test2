@@ -16,13 +16,13 @@ jobs:
         id: changed
         uses: tj-actions/changed-files@v38
         with:
-          files_yaml: |
+          files_ignore_yaml: |
             sub1:
-              - "!apps/sub2/**"
-              - "!apps/sub3/**"
+              - apps/sub2/**
+              - apps/sub3/**
             sub2:
-              - "!apps/sub1/**"
-              - "!apps/sub3/**"
+              - apps/sub1/**
+              - apps/sub3/**
 
       - name: console
         run: |

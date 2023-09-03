@@ -2,12 +2,6 @@ name: sub1
 on:
   push:
     branches: [master, release]
-    # paths:
-    #   - "*.json"
-    #   - "*.yml"
-    #   - "*.md"
-    #   - .github/workflows/sub1.yml
-    #   - apps/sub1/**
     paths-ignore:
       - apps/sub2/**
       - apps/sub3/**
@@ -25,6 +19,6 @@ jobs:
         if: github.ref == 'refs/heads/master'
         run: |
           echo "ENABLE_DEPLOY=false" >> $GITHUB_ENV
-          echo github.event_path
+          echo "$github.event_path"
 
 

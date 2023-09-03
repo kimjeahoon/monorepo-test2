@@ -23,7 +23,7 @@ jobs:
             echo "CHANGED=sub2" >> $GITHUB_ENV
           fi
       
-      - name: asdfas
+      - name: all changed files
         run: |
           for file in ${{ steps.filter.outputs.all_changed_files }}; do
             echo "$file was changed"

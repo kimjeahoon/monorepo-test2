@@ -23,9 +23,11 @@ jobs:
         if: steps.filter.outputs.sub2_any_changed == 'true'
         run: echo "CHANGED=${{ env.CHANGED }} sub2" >> $GITHUB_ENV
 
-      - name: changed console
+      - name: console
         run: |
-          echo "changed: ${{ env.CHANGED }}"
+          for c in ${{ env.CHANGED }}; do
+            echo "changed: $c"
+          done
     outputs:
       changed: ${{ env.CHANGED }}
 

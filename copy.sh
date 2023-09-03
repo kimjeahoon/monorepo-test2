@@ -1,5 +1,7 @@
 #!/bin/bash
 
-echo "Copying files..."
-cp .yarnrc.yml yarn.lock apps/sub1
-ls -al apps/sub1
+a="sub1 sub2"
+
+for i in $a ; do
+    echo $i
+done

@@ -25,11 +25,12 @@ jobs:
 
       - name: Set Changed Files Env
         run: |
-          if [ ${{ steps.filter.outputs.sub1_any_changed }} == 'true' ]; then
-            CHANGED="sub1"
-          elif [ ${{ steps.filter.outputs.sub2_any_changed }} == 'true' ]; then
-            CHANGED="${CHANGED} sub2"
-          fi
+          ALL_SERVERS=("sub1", "sub2")
+          for server in "${ALL_SERVERS[@]}"; do
+            if [ ${{ steps.filter.outputs.${server}_any_changed }} == 'true' ]; then
+              CHANGED="${CHANGED} ${server}"
+            fi
+          done
           echo "CHANGED=${CHANGED}" >> $GITHUB_ENV
 
       - name: console

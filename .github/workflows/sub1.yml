@@ -28,3 +28,6 @@ jobs:
         run: |
           echo "changed: ${{ steps.changed.outputs.sub1_any_changed }}"
           echo "changed: ${{ steps.changed.outputs.sub2_any_changed }}"
+          for key in ${{ steps.changed.outputs }}; do
+            echo "Key: $key, Value: ${steps.changed.outputs[$key]}"
+          done

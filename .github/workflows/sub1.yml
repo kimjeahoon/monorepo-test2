@@ -15,10 +15,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Set env for master branch
-        if: github.ref == 'refs/heads/master'
-        run: |
-          echo "ENABLE_DEPLOY=false" >> $GITHUB_ENV
-          echo "$github.event_path"
+      - name: console
+        run: echo ${{ github.event_path }}
+          
 
 

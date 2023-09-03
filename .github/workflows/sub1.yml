@@ -19,14 +19,13 @@ jobs:
         run: |
           if [ ${{ steps.filter.outputs.sub1_any_changed }} == "true" ]; then
             echo "CHANGED=sub1" >> $GITHUB_ENV
-          fi
-          if [ ${{ steps.filter.outputs.sub2_any_changed }} == "true" ]; then
+          elif [ ${{ steps.filter.outputs.sub2_any_changed }} == "true" ]; then
             echo "CHANGED=sub2" >> $GITHUB_ENV
           fi
       
       - name: asdfas
         run: |
-          for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
+          for file in ${{ steps.filter.outputs.all_changed_files }}; do
             echo "$file was changed"
           done
 

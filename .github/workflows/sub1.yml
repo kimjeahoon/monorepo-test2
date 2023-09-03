@@ -22,13 +22,6 @@ jobs:
           elif [ steps.filter.outputs.sub2_any_changed == "true" ]; then
             echo "CHANGED=sub2" >> $GITHUB_ENV
           fi
-      
-      - name: Set Changed Files Env
-        run: |
-          for key in ${steps.filter.outputs}; do
-            echo "key=$key"
-            echo "CHANGED=$key" >> $GITHUB_ENV
-          done
 
       - name: changed console
         run: |

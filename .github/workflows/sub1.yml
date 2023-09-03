@@ -2,9 +2,6 @@ name: sub1 asdfas
 on:
   push:
     branches: [master, release]
-    # paths-ignore:
-    #   - apps/sub2/**
-    #   - apps/sub3/**
 
 jobs:
   job1:
@@ -12,23 +9,32 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Get changed files in the docs folder
-        id: changed
+      - name: Check Changed Files
+        id: filter
         uses: tj-actions/changed-files@v38
         with:
           files_yaml_from_source_file: ".github/filter.yml"
-          # files_yaml: |
-          #   sub1:
-          #     - "!apps/sub2/**"
-          #     - "!apps/sub3/**"
-          #   sub2:
-          #     - "!apps/sub1/**"
-          #     - "!apps/sub3/**"
+      
+      - name: Set Changed Files Env
+        run: |
+          if [ ${{ steps.filter.outputs.sub1_any_changed }} == "true" ]; then
+            echo "CHANGED=sub1" >> $GITHUB_ENV
+          fi
+          if [ ${{ steps.filter.outputs.sub2_any_changed }} == "true" ]; then
+            echo "CHANGED=sub2" >> $GITHUB_ENV
+          fi
+      
+      - name: asdfas
+        run: |
+          for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
+            echo "$file was changed"
+          done
 
       - name: changed console
         run: |
-          echo "changed: ${{ steps.changed.outputs.sub1_any_changed }}"
-          echo "changed: ${{ steps.changed.outputs.sub2_any_changed }}"
+          echo "changed: ${{ env.CHANGED }}"
+    outputs:
+      changed: ${{ env.CHANGED }}
 
   job2:
     runs-on: ubuntu-latest
@@ -36,5 +42,4 @@ jobs:
     steps:
       - name: job2 console
         run: |
-          echo "changed: ${{ steps.changed.outputs.sub1_any_changed }}"
-          echo "changed: ${{ steps.changed.outputs.sub2_any_changed }}"
+          echo "changed: ${{ needs.job1.outputs.changed }}"

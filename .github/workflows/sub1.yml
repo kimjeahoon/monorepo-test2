@@ -23,10 +23,10 @@ jobs:
         if: steps.filter.outputs.sub2_any_changed == 'true'
         run: echo "SERVERS=sub2" >> $GITHUB_ENV
 
-      - name: console
+      - name: run shell script
         run: |
           for c in ${{ env.CHANGED }}; do
-            echo "changed: $c"
+            ./copy.sh $c
           done
     outputs:
       changed: ${{ env.CHANGED }}

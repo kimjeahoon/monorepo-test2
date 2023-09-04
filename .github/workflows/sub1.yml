@@ -21,11 +21,11 @@ jobs:
 
       - name: Set Changed Files Env
         if: steps.filter.outputs.sub2_any_changed == 'true'
-        run: echo "SERVERS=sub2" >> $GITHUB_ENV
+        run: echo "SERVERS=${{ env.SERVERS }} sub2" >> $GITHUB_ENV
 
       - name: run shell script
         run: |
-          for c in ${{ env.CHANGED }}; do
+          for c in ${{ env.SERVERS }}; do
             ./copy.sh $c
           done
     outputs:

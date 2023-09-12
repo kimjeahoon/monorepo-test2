@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: test
-        run: echo {{ github.run_id }}
+      - name: echo github run_id
+        run: echo ${{ github.run_id }}
     outputs:
       changed: ${{ env.CHANGED }}

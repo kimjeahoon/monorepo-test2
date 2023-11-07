@@ -1,0 +1,20 @@
+gwv1:
+  image:
+    repository: 'l9fjlh66.private-ncr.fin-ntruss.com/gateway-service/v1'
+    tag: 35-c34e42
+gwmanager:
+  image:
+    repository: 'l9fjlh66.private-ncr.fin-ntruss.com/gateway-service/manager'
+    tag: 53-695757
+gwcustomer:
+  image:
+    repository: 'l9fjlh66.private-ncr.fin-ntruss.com/gateway-service/customer'
+    tag: 53-695757
+gwpublic:
+  image:
+    repository: 'l9fjlh66.private-ncr.fin-ntruss.com/gateway-service/public'
+    tag: 35-c34e42
+gwadmin:
+  image:
+    repository: 'l9fjlh66.private-ncr.fin-ntruss.com/gateway-service/admin'
+    tag: 35-c34e42

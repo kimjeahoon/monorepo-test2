@@ -9,7 +9,34 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: echo github run_number
-        run: echo ${{ github.run_number }}
     outputs:
-      changed: ${{ env.CHANGED }}
+      servers: "v1 manager customer public admin"
+      version: "${{ github.run_number }}-1234123"
+
+  job2:
+    runs-on: ubuntu-latest
+    needs: job1
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup YQ
+        uses: chrisdickinson/setup-yq@latest
+
+      - name: Update yaml
+        run: |
+          for server in ${{ needs.build.outputs.servers }}; do
+            yq w -i '${{ github.workspace }}/update.yaml' 'gw${server}.image.tag' ${{ needs.build.outputs.version }}
+          done
+
+      - name: Commit
+        run: |
+          git config --local user.email ${{ github.event.pusher.email }}
+          git config --local user.name ${{ github.event.pusher.name }}
+          git commit -am "build: update ${{ env.ENVIRONMENT }} gw-service image"
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          repository: steppay/step-gitops
+          branch: main
+          github_token: ${{ secrets.GITOPS_ACCESS_TOKEN }}

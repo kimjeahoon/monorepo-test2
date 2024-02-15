@@ -11,4 +11,4 @@ jobs:
       
       - name: test
         run: |
-          echo "before ${GITHUB_REF_NAME}"
+          git log --oneline

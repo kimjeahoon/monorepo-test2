@@ -11,5 +11,4 @@ jobs:
       
       - name: test
         run: |
-          echo "before ${{ github.event.before }}"
-          echo "after ${{ github.event.after }}"
+          echo "before ${GITHUB_HEAD_REF}"

@@ -13,4 +13,4 @@ jobs:
       
       - name: test
         run: |
-          git log --oneline
+          echo "asdf ${{ toJson(github.event.commits) }}"

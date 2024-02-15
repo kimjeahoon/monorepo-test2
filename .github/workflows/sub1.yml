@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       
-      - name: test
+      - name: tests
         run: |
           echo "before ${{ github.event.before }}"
           echo "after ${{ github.event.after }}"

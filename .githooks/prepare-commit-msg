@@ -2,7 +2,7 @@
 
 BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD)
 
-if [ "${BRANCH_NAME}" == "master" ] && git diff --staged package.json | grep -q "eslint"; then
+if false; then
     echo ">>> run ci"
     exit 0
 fi

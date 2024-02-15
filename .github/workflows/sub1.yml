@@ -7,8 +7,9 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       
-      - run: |
+      - name: test
+        run: |
           echo "before ${{ github.event.before }}"
           echo "after ${{ github.event.after }}"
